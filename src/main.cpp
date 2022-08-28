@@ -78,7 +78,7 @@ int run_preprocessor(fs::path _input_path, fs::path _output_path)
 	std::ifstream stream(_input_path.c_str());
 	if(!stream.is_open())
 	{
-		std::cout << "failed to open " << _input_path << std::endl;
+		std::cout << "failed to open input file " << _input_path << std::endl;
 		return 1;
 	}
 	const std::string shader_code(std::istreambuf_iterator<char>(stream), {});
@@ -95,7 +95,7 @@ int run_preprocessor(fs::path _input_path, fs::path _output_path)
 		std::ofstream stream(_output_path);
 		if(!stream.is_open())
 		{
-			std::cout << "failed to open " << _input_path << std::endl;
+			std::cout << "failed to open output file " << _output_path << std::endl;
 			return 1;
 		}
 
@@ -177,7 +177,7 @@ int main(int argc, char** argv)
 	if(parse_result.count("p"))
 	{
 		fs::path output = parse_result["output"].as<std::string>();
-		if(fs::is_directory(output))
+		if(fs::is_directory(output) || output.empty())
 		{
 			auto output_file_name = filepath.stem().string() + "_preprocess";
 			if(filepath.has_extension())
