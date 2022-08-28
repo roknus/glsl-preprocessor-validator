@@ -1,0 +1,9 @@
+{
+  "name": "glsl-shader-preprocessor",
+  "version": "1.0.0",
+  "dependencies": [
+    "gtest",
+    "shaderc",
+    "cxxopts"
+  ]
+}

@@ -1,0 +1,76 @@
+
+
+AccessModifierOffset: -4
+
+# Penalty for putting the return type of a function onto its own line.
+# In same cases "AlwaysBreakAfterReturnType: None" is not taken into account
+# because "BinPackParameters : false" take precedence. By putting this
+# value we make sure the AlwaysBreakAfterReturnType take precedence.
+PenaltyReturnTypeOnItsOwnLine: 1000000
+
+AllowShortBlocksOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: InlineOnly
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortLambdasOnASingleLine: None
+
+BraceWrapping:
+  AfterClass: true    
+  AfterControlStatement: true    
+  AfterEnum: true    
+  AfterFunction: true    
+  AfterNamespace: true    
+  AfterStruct: true  
+  AfterCaseLabel: true
+  AfterUnion: true
+  AfterObjCDeclaration: true
+  AfterExternBlock: true
+  BeforeCatch: true
+  BeforeElse: true
+  IndentBraces: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  BeforeLambdaBody: true
+
+AlwaysBreakTemplateDeclarations: Yes
+SpaceAfterTemplateKeyword: false
+
+BreakBeforeTernaryOperators: true
+BreakBeforeBraces: Custom
+BreakConstructorInitializers: BeforeComma
+AlwaysBreakAfterReturnType: None
+ColumnLimit: 100
+Cpp11BracedListStyle: false
+FixNamespaceComments: true
+IndentCaseLabels: false
+IndentPPDirectives: None
+IndentWidth: 4
+MaxEmptyLinesToKeep: 10
+NamespaceIndentation: None
+PointerAlignment: Left
+SortUsingDeclarations: false
+SpaceAfterCStyleCast: false
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: Never
+SpaceInEmptyParentheses: false
+SpacesInCStyleCastParentheses: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+TabWidth: 4
+UseTab: true
+AlignAfterOpenBracket : AlwaysBreak
+BinPackParameters : false
+BinPackArguments : false
+
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowAllArgumentsOnNextLine: false
+
+AlignConsecutiveAssignments: false
+AlignTrailingComments: false
+
+SortIncludes: true
+IncludeBlocks: Merge
+
+# Indent the preprocessor directive
+IndentPPDirectives: AfterHash
