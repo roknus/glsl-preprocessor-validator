@@ -79,7 +79,7 @@ int run_preprocessor(fs::path _input_path, fs::path _output_path)
 	if(!stream.is_open())
 	{
 		std::cout << "failed to open " << _input_path << std::endl;
-		return 0;
+		return 1;
 	}
 	const std::string shader_code(std::istreambuf_iterator<char>(stream), {});
 
@@ -96,7 +96,7 @@ int run_preprocessor(fs::path _input_path, fs::path _output_path)
 		if(!stream.is_open())
 		{
 			std::cout << "failed to open " << _input_path << std::endl;
-			return 0;
+			return 1;
 		}
 
 		std::copy(result.begin(), result.end(), std::ostream_iterator<char>(stream));
@@ -104,12 +104,12 @@ int run_preprocessor(fs::path _input_path, fs::path _output_path)
 		std::string output(result.begin(), result.end());
 
 		std::cout << output << std::endl;
-		return 1;
+		return 0;
 	}
 	else
 	{
 		std::cout << result.GetErrorMessage() << std::endl;
-		return 0;
+		return 1;
 	}
 }
 
@@ -146,19 +146,19 @@ int main(int argc, char** argv)
 		if(parse_result.count("help"))
 		{
 			std::cout << options_parser.help({ "" }) << std::endl;
-			return 1;
+			return 0;
 		}
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << "error parsing options: " << e.what() << std::endl;
-		return 0;
+		return 1;
 	}
 
 	if(input_file.empty())
 	{
 		std::cout << "no input file" << std::endl;
-		return 0;
+		return 1;
 	}
 
 	fs::path filepath(input_file);
@@ -166,12 +166,12 @@ int main(int argc, char** argv)
 	if(!fs::exists(filepath))
 	{
 		std::cout << "can't find " << filepath << std::endl;
-		return 0;
+		return 1;
 	}
 	else if(!fs::is_regular_file(filepath))
 	{
 		std::cout << "not a file " << filepath << std::endl;
-		return 0;
+		return 1;
 	}
 
 	if(parse_result.count("p"))
@@ -189,5 +189,5 @@ int main(int argc, char** argv)
 		return run_preprocessor(filepath, output);
 	}
 
-	return 1;
+	return 0;
 }
